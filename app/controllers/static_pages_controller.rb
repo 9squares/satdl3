@@ -13,6 +13,8 @@ class StaticPagesController < ApplicationController
 
   def profile
   	@user = current_user
+    @tasks = @user.tasks.reject(&:new_record?)
+    @task = @user.tasks.build if user_signed_in?
   end
 
 end

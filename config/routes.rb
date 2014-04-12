@@ -1,5 +1,10 @@
 Satdl3::Application.routes.draw do
   devise_for :users
+  resources :tasks, only: [:create, :destroy, :update] do
+    member do
+      get :flop
+    end
+  end
 
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',         via: 'get'
