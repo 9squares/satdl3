@@ -1,17 +1,27 @@
 <!-- This part loads the Done Task div of the profile page -->
 <div>
 	<% if @tasks.count > 0 %>
-		<ul>
-		<% @tasks.each do |t| %>
-			<% if t.done == true %>
-				<li><%= t.title %>, done:<%= t.done %>,  <%= link_to "Delete", t, method: :delete %>,  
-						<%= form_for t do |f| %>
-							<%= f.hidden_field :done, :value=> false %>
-							<%= f.submit "UnDo" %>
-						<% end %>
-				</li> 
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Done B</th>
+				<th>Delete</th>
+			</tr>
+			<% @tasks.each do |t| %>
+				<% if t.done == true %>
+					<tr>
+						<td><%= t.title %></td>
+						<td><%= t.done %></td>
+						<td><%= link_to "Delete", t, method: :delete %></td>
+						<td><%= form_for t do |f| %>
+								<%= f.hidden_field :done, :value=> false %>
+								<%= f.submit "Undo" %>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
 			<% end %>
-		<% end %>
-		</ul>
+		</table>
 	<% end %>
 </div>

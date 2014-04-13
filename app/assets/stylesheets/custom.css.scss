@@ -1,0 +1,24 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. hungyi and yongsheng were here */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #fff;
+  }
+
+.pHY {
+	line-height: 0.9px;
+}
