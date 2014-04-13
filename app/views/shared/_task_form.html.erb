@@ -1,0 +1,9 @@
+<!-- This part loads the entry form to create new task for the user -->
+<div>
+	<%= form_for(@task) do |f| %>
+		<div><%= f.label :title %><br>
+			<%= f.text_field :title, placehodler: "Create new task..." %>
+		</div>
+		<%= f.submit "Add" %>
+	<% end %>
+</div>

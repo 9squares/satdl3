@@ -1,0 +1,17 @@
+<!-- This part laods the To Do List of the Profile Page -->
+<div>
+	<% if @tasks.count > 0 %>
+		<ul>
+		<% @tasks.each do |t| %>
+			<% if t.done == false %>
+				<li><%= t.title %>, done:<%= t.done %>,  <%= link_to "Delete", t, method: :delete %>,  
+						<%= form_for t do |f| %>
+							<%= f.hidden_field :done, :value=> true %>
+							<%= f.submit "Done" %>
+						<% end %>
+				</li>
+			<% end %>
+		<% end %>
+		</ul>
+	<% end %>
+</div>
