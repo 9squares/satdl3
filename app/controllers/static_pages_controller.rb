@@ -17,4 +17,8 @@ class StaticPagesController < ApplicationController
     @task = @user.tasks.build if user_signed_in?
   end
 
+  def index
+    @users = User.all
+  end
+
 end
