@@ -20,5 +20,49 @@ $grayMediumLight: #eaeaea;
   }
 
 .pHY {
-	line-height: 0.9px;
+	line-height: 1.5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 0px solid transparent;
+  border-radius: 2px;
+}
+
+.btn-primary {
+	color: #fff;
+	background: #bbb;
+	margin: 3px;
+}
+
+.btn-danger {
+	color: #fff;
+	background: #ccc;
+	margin: 3px;
+}
+
+.form-control {
+	width: 100%;
+}
+
+#hy {
+	width: 100%;
+}
+
+#hy2 {
+	width: 100%;
 }

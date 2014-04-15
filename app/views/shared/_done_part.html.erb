@@ -2,21 +2,19 @@
 <div>
 	<% if @tasks.count > 0 %>
 		<table>
-			<tr>
-				<th>Title</th>
-				<th>Status</th>
-				<th>Done B</th>
-				<th>Delete</th>
+			<tr class = "container">
+				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
 			<% @tasks.each do |t| %>
 				<% if t.done == true %>
 					<tr>
-						<td><%= t.title %></td>
-						<td><%= t.done %></td>
-						<td><%= link_to "Delete", t, method: :delete %></td>
+						<td class = "col-sm-12" id = "hy"><%= t.title %></td>
+						<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
 						<td><%= form_for t do |f| %>
 								<%= f.hidden_field :done, :value=> false %>
-								<%= f.submit "Undo" %>
+								<%= f.submit "Undo", class: "btn btn-primary" %>
 							<% end %>
 						</td>
 					</tr>
