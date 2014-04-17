@@ -1,0 +1,12 @@
+<% provide(:title, @title) %>
+<div>
+	<h1><%= current_user.username %></h1>
+</div>
+
+<div>
+	<% if @users.any? %>
+		<% @users.each do |user| %>
+			<h2><%= link_to "#{user.username}", user_path(user.id) %></h2>
+		<% end %>
+	<% end %>
+</div>
