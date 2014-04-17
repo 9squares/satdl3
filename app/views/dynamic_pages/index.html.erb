@@ -2,6 +2,6 @@
 <h1>User list</h1>
 <ol>
 	<% @users.each do |u| %>
-		<li><%= u.username %></li>
+		<li><%= u.username %><%= link_to "Visit Profile Page", user_path(u.id) %></li>
 	<% end %>
 </ol>

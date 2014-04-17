@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_action :user_signed_in?
+	before_action :authenticate_user!
 
 	def create
 		@task = current_user.tasks.build(task_params)
@@ -20,13 +20,6 @@ class TasksController < ApplicationController
 	def update
 		@task = current_user.tasks.find_by(id: params[:id])
 		@task.update(params[:task].permit(:title, :done))
-		redirect_to profile_path
-	end
-
-	def flop
-		@task = current_user.tasks.find_by(id: params[:id])
-		@task.done = !@task.done
-		@task.save
 		redirect_to profile_path
 	end
 
