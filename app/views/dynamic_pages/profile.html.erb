@@ -24,10 +24,13 @@
 	
 	<div class = "col-sm-3">
 
-		<h2>To Do</h2>
-		<%= render 'shared/todo_part' %>
-		<h2>Done Items</h2>
-		<%= render 'shared/done_part' %>
+		<h2>Activity Feed</h2>
+		<!-- Uncomment below to inspect what the activity feed pushes out -->
+		<!-- <% @activities.each do |activity| %>
+			<%= activity.inspect %>
+		<% end %> -->
+
+		<%= render 'shared/activity_feed' %>
 
 	</div>
 
