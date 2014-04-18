@@ -6,7 +6,9 @@ Satdl3::Application.routes.draw do
     end
   end
 
-  resources :tasks,         only: [:create, :destroy, :update]
+  resources :tasks do
+    resources :comments
+  end
   resources :relationships, only: [:create, :destroy]
 
   root 'static_pages#home'

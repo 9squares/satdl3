@@ -23,6 +23,13 @@ class TasksController < ApplicationController
 		redirect_to profile_path
 	end
 
+	def show
+		@task = Task.find_by(id: params[:id])
+		@user = @task.user
+		@comment = Comment.new
+		@comments = @task.comments
+	end
+
 	private
 
 		def task_params
