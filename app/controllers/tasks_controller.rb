@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 	def create
 		@task = current_user.tasks.build(task_params)
 		if @task.save
+			@task.create_activity :create, owner: current_user
 			flash[:success] = "Task created!"
 			redirect_to profile_path
 		else
@@ -20,6 +21,7 @@ class TasksController < ApplicationController
 	def update
 		@task = current_user.tasks.find_by(id: params[:id])
 		@task.update(params[:task].permit(:title, :done))
+		@task.create_activity :update, owner: current_user
 		redirect_to profile_path
 	end
 

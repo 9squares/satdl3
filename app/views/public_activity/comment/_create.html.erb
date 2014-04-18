@@ -1,0 +1,6 @@
+added comment to 
+<% if activity.trackable.task %>
+	<%= link_to activity.trackable.task.title, activity.trackable.task %>
+<% else %>
+	task that has since been removed.
+<% end %>

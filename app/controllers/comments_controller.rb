@@ -3,8 +3,10 @@ class CommentsController < ApplicationController
 		@task = Task.find(params[:task_id])
 		@comment = @task.comments.build(comment_params)
 		@comment.user = current_user
-		@comment.save
-		redirect_to task_path(@task)
+		if @comment.save
+			@comment.create_activity :create, owner: current_user
+			redirect_to task_path(@task)
+		end
 	end
 
 	def destroy

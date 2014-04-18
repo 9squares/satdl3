@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 			redirect_to profile_path
 		end
 		@tasks = @user.tasks
+		@activities = PublicActivity::Activity.order("created_at desc")
 	end
 
 	def following

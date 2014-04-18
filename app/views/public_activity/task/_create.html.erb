@@ -1,0 +1,6 @@
+added a new task: 
+<% if activity.trackable %>
+	<%= link_to activity.trackable.title, activity.trackable %>
+<% else %>
+	that has since been removed.
+<% end %>
