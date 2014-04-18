@@ -1,0 +1,32 @@
+<% provide(:title, "#{@user.username} - Task") %>
+<h1><%= link_to @user.username, user_path(@user) %></h1>
+<h2>Task Title:</h2>
+<p><%= @task.title %></p>
+<h2>Status</h2>
+<% if @task.done == false %>
+	<p>Not done</p>
+<% else %>
+	<p>Done</p>
+<% end %>
+<h2>Comments</h2>
+<ol>
+<% @comments.each do |comment| %>
+	<li>
+		<%= comment.user.username %> says <%= comment.body %>. 
+		<% if comment.user == current_user %>
+			<%= link_to 'Destroy Comment', [comment.task, comment], method: :delete %>
+		<% end %>
+	</li>
+<% end %>
+</ol>
+
+<h2>Add Comment</h2>
+<%= form_for([@task, @task.comments.build]) do |f| %>
+	<p>
+		<%= f.label :body %><br>
+		<%= f.text_area :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
