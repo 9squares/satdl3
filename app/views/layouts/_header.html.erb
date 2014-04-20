@@ -1,31 +1,29 @@
+<!-- commented outlines as I cannot get the collapse button to work -->
 <header>
-
 	<div class = "navbar navbar-default navbar-fixed-top">
-
       <div class = "container">
-        <div class = "navbar-brand"><a href="#">The Super Awesome To-Do List</a></div>
+      	<div class = "navbar-header">
+	        <a class="navbar-brand" href="/">The Super Awesome To-Do List <sup>alpha</sup></a>
 
-        <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-          <span class = "icon-bar"></span>
-          <span class = "icon-bar"></span>
-          <span class = "icon-bar"></span>
-        </button>
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+	          <span class = "icon-bar"></span>
+	          <span class = "icon-bar"></span>
+	          <span class = "icon-bar"></span>
+	        </button>
+    	</div>
 
 		<div class = "collapse navbar-collapse navHeaderCollapse">
-		<ul class = "nav navbar-nav navbar-right">
-			
-			<% if user_signed_in? %>
-				<li><%= link_to "#{current_user.username}", profile_path %></li>
-				<li><%= link_to "Users", index_path %></li>
-				<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-			<% else %>
-				<li><%= link_to "Home", root_path %></li>
-				<li><%= link_to "Sign up", new_user_registration_path %></li>
-				<li><%= link_to "Sign in", new_user_session_path %></li>
-			<% end %>
-			</li>
-		</ul>
+			<ul class = "nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+					<li><%= link_to "#{current_user.username}", profile_path %></li>
+					<li><%= link_to "Users", users_path %></li>
+					<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+				<% else %>
+					<li><%= link_to "Sign in", new_user_session_path %></li>
+				<% end %>
+			</ul>
+		</div>
+	  </div>
 	</div>
-	
 </header>
 

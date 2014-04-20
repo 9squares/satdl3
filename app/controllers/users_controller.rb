@@ -7,7 +7,13 @@ class UsersController < ApplicationController
 			redirect_to profile_path
 		end
 		@tasks = @user.tasks
-		@activities = PublicActivity::Activity.order("created_at desc")
+		@activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users)
+	end
+
+	def index
+		@user = current_user
+		@users = User.all
+		@activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users)
 	end
 
 	def following

@@ -6,6 +6,51 @@
   padding: 16px 0;
 }
 
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #CCC;
+    &:last-child {
+      border-bottom: 1px solid #CCC;
+    }
+  }
+}
+
+/* header */
+
+header {
+  sup {
+    color: #800000;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+  small {
+    float: left;
+    padding-left: 40px;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    padding-right: 40px;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
 /* mixins, variables, etc. hungyi and yongsheng were here */
 
 $grayMediumLight: #eaeaea;

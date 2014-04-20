@@ -5,9 +5,7 @@
 
 	<div class = "col-sm-2">
 
-		<h1><%= @user.username %></h1>
-		<p><%= @user.email %></p>
-		<%= render 'shared/stats' %>
+		<%= render 'shared/user_info' %>
 		<h2>Add Task</h2>
 		<%= render 'shared/task_form' %>
 
@@ -25,10 +23,6 @@
 	<div class = "col-sm-3">
 
 		<h2>Activity Feed</h2>
-		<!-- Uncomment below to inspect what the activity feed pushes out -->
-		<!-- <% @activities.each do |activity| %>
-			<%= activity.inspect %>
-		<% end %> -->
 
 		<%= render 'shared/activity_feed' %>
 
