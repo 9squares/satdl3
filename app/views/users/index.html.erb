@@ -1,4 +1,4 @@
-<% provide(:title, @user.username) %>
+<% provide(:title, 'All Users') %>
 <div class = "row">
 
 	<div class = "col-sm-1"></div>
@@ -11,10 +11,12 @@
 	
 	<div class = "col-sm-6">
 
-		<h2>To Do</h2>
-		<%= render 'shared/todo_part' %>
-		<h2>Done Items</h2>
-		<%= render 'shared/done_part' %>
+		<h1>User list</h1>
+		<ul class="users">
+			<% @users.each do |u| %>
+				<li><%= link_to "#{u.username}", user_path(u.id) %></li>
+			<% end %>
+		</ul>
 
 	</div>
 	

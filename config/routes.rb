@@ -1,6 +1,6 @@
 Satdl3::Application.routes.draw do
   devise_for :users
-  resources :users do
+  resources :users, only: [:index, :show] do
     member do
       get :following, :followers
     end
@@ -14,8 +14,8 @@ Satdl3::Application.routes.draw do
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',         via: 'get'
   match '/about',   to: 'static_pages#about',        via: 'get'
+  match '/contact', to: 'static_pages#contact',      via: 'get'
   match '/profile', to: 'dynamic_pages#profile',     via: 'get'
-  match '/index',   to: 'dynamic_pages#index',       via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
