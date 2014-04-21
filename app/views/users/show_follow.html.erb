@@ -1,12 +1,17 @@
 <% provide(:title, @title) %>
-<div>
-	<h1><%= current_user.username %></h1>
-</div>
+<div class="container">
+	<div>
+		<h1><%= current_user.username %></h1>
+		<p><%= @title %></p>
+	</div>
 
-<div>
-	<% if @users.any? %>
-		<% @users.each do |user| %>
-			<h2><%= link_to "#{user.username}", user_path(user.id) %></h2>
+	<div class ="container">
+		<% if @users.any? %>
+			<% @users.each do |user| %>
+				<div class="follow-users">
+					<h2><%= link_to "#{user.username}", user_path(user.id) %></h2>
+				</div>
+			<% end %>
 		<% end %>
-	<% end %>
+	</div>
 </div>
