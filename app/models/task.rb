@@ -3,5 +3,5 @@ class Task < ActiveRecord::Base
 
 	belongs_to :user
 	validates :user_id, presence: true
-	has_many :comments
+	has_many :comments, dependent: :destroy
 end
