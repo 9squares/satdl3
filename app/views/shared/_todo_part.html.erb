@@ -1,5 +1,4 @@
 <!-- This part laods the To Do List of the Profile Page -->
-<!-- SECURITY NOTE: Only hiding the delete and undo button from the views, it will still work from the controller side -->
 <div>
 	<% if @tasks.count > 0 %>
 		<table>
@@ -9,18 +8,34 @@
 				<th></th>
 			</tr>
 			<% @tasks.each do |t| %>
-				<% if t.done == false %>
-					<tr>
-						<td class = "col-sm-12" id = "hy2"><%= link_to "#{t.title}", task_path(t) %></td>
-						<% if @user == current_user %>
-							<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
-							<td><%= form_for t do |f| %>
-									<%= f.hidden_field :done, :value=> true %>
-									<%= f.submit "Done", class: "btn btn-primary" %>
-								<% end %>
-							</td>
-						<% end %>
-					</tr>
+				<% if t.user == current_user %>
+					<% if t.done == false %>
+						<tr>
+							<td class = "col-sm-12" id = "hy2"><%= link_to "#{t.title}", task_path(t) %></td>
+							<% if @user == current_user %>
+								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
+								<td><%= form_for t do |f| %>
+										<%= f.hidden_field :done, :value=> true %>
+										<%= f.submit "Done", class: "btn btn-primary" %>
+									<% end %>
+								</td>
+							<% end %>
+						</tr>
+					<% end %>
+				<% else %>
+					<% if t.done == false and t.private == false %>
+						<tr>
+							<td class = "col-sm-12" id = "hy2"><%= link_to "#{t.title}", task_path(t) %></td>
+							<% if @user == current_user %>
+								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
+								<td><%= form_for t do |f| %>
+										<%= f.hidden_field :done, :value=> true %>
+										<%= f.submit "Done", class: "btn btn-primary" %>
+									<% end %>
+								</td>
+							<% end %>
+						</tr>
+					<% end %>
 				<% end %>
 			<% end %>
 		</table>
