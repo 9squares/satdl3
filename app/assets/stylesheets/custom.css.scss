@@ -2,7 +2,7 @@
 
 /* activity feed */
 .activity {
-  border-bottom: solid 1px #CCC;
+  border-bottom: solid 1px #EEE;
   padding: 16px 0;
 }
 
@@ -13,7 +13,7 @@
 /* Followers/Following index */
 .follow-users {
   overflow: auto;
-  border-top: 1px solid #CCC;
+  border-top: 1px solid #EEE;
 }
 
 /* Users index */
@@ -22,11 +22,11 @@
   list-style: none;
   margin: 0;
   li {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid #CCC;
+    overflow: hidden;
+    padding: 5px 0;
+    border-top: 1px solid #EEE;
     &:last-child {
-      border-bottom: 1px solid #CCC;
+      border-bottom: 1px solid #EEE;
     }
   }
 }
@@ -126,6 +126,14 @@ $grayMediumLight: #eaeaea;
 
 #hy2 {
 	width: 100%;
+}
+
+.alignmiddle {
+  margin: 8px;
+}
+
+.navbar-brand {
+  font-size: 16px;
 }
 
 /* code to get width to work in Windows Phone 8 */
