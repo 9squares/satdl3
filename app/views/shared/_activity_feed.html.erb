@@ -8,6 +8,7 @@
 			<div class="activity_timestamp">
 				<small><%= time_ago_in_words(activity.created_at) %> ago</small>
 			</div>
+			<%= activity.trackable[:private] %>
 			<%= activity.trackable.inspect %>
 			<%= activity.inspect %>
 		</div>
