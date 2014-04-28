@@ -1,8 +1,6 @@
 added a new task: 
-<% if activity.trackable.private %>
-	that is private.
+<% if activity.trackable %>
 
-<% elsif activity.trackable %>
 	<%= link_to activity.trackable.title, activity.trackable %>
 
 <% else %>
