@@ -11,7 +11,12 @@
 				<% if t.user == current_user %>
 					<% if t.done == false %>
 						<tr>
-							<td class = "col-sm-12" id = "hy2"><%= link_to "#{t.title}", task_path(t) %></td>
+							<td class = "col-sm-12" id = "hy2">
+								<% if t.private == true %>
+									Private:
+								<% end %>
+								<%= link_to "#{t.title}", task_path(t) %>
+							</td>
 							<% if @user == current_user %>
 								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
 								<td><%= form_for t do |f| %>
@@ -26,14 +31,6 @@
 					<% if t.done == false and t.private == false %>
 						<tr>
 							<td class = "col-sm-12" id = "hy2"><%= link_to "#{t.title}", task_path(t) %></td>
-							<% if @user == current_user %>
-								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
-								<td><%= form_for t do |f| %>
-										<%= f.hidden_field :done, :value=> true %>
-										<%= f.submit "Done", class: "btn btn-primary" %>
-									<% end %>
-								</td>
-							<% end %>
 						</tr>
 					<% end %>
 				<% end %>
