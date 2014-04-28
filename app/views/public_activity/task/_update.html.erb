@@ -1,5 +1,7 @@
 done 
-<% if activity.trackable %>
+<% if activity.trackable.private %>
+	a private task.
+<% elsif activity.trackable %>
 	<%= link_to activity.trackable.title, activity.trackable %>
 <% else %>
 	task that has since been removed.
