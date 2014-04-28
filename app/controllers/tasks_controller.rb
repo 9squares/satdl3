@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
 	def update
 		@task = current_user.tasks.find_by(id: params[:id])
-		@task.update(params[:task].permit(:title, :done))
+		@task.update(task_params)
 		@task.create_activity :update, owner: current_user
 		redirect_to profile_path
 	end
@@ -35,6 +35,6 @@ class TasksController < ApplicationController
 	private
 
 		def task_params
-			params.require(:task).permit(:title, :done)
+			params.require(:task).permit(:title, :done, :private)
 		end
 end

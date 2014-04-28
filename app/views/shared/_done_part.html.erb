@@ -8,18 +8,34 @@
 				<th></th>
 			</tr>
 			<% @tasks.each do |t| %>
-				<% if t.done == true %>
-					<tr>
-						<td class = "col-sm-12" id = "hy"><%= link_to "#{t.title}", task_path(t) %></td>
-						<% if @user == current_user %>
-							<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
-							<td><%= form_for t do |f| %>
-									<%= f.hidden_field :done, :value=> false %>
-									<%= f.submit "Undo", class: "btn btn-primary" %>
-								<% end %>
-							</td>
-						<% end %>
-					</tr>
+				<% if t.user == current_user %>
+					<% if t.done == true %>
+						<tr>
+							<td class = "col-sm-12" id = "hy"><%= link_to "#{t.title}", task_path(t) %></td>
+							<% if @user == current_user %>
+								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
+								<td><%= form_for t do |f| %>
+										<%= f.hidden_field :done, :value=> false %>
+										<%= f.submit "Undo", class: "btn btn-primary" %>
+									<% end %>
+								</td>
+							<% end %>
+						</tr>
+					<% end %>
+				<% else %>
+					<% if t.done == true and t.private == false %>
+						<tr>
+							<td class = "col-sm-12" id = "hy"><%= link_to "#{t.title}", task_path(t) %></td>
+							<% if @user == current_user %>
+								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
+								<td><%= form_for t do |f| %>
+										<%= f.hidden_field :done, :value=> false %>
+										<%= f.submit "Undo", class: "btn btn-primary" %>
+									<% end %>
+								</td>
+							<% end %>
+						</tr>
+					<% end %>
 				<% end %>
 			<% end %>
 		</table>
