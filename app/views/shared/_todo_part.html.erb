@@ -17,6 +17,7 @@
 								<% end %>
 								<%= link_to "#{t.title}", task_path(t) %>
 							</td>
+							<td><%= t.due_date %></td>
 							<% if @user == current_user %>
 								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
 								<td><%= form_for t do |f| %>
@@ -31,6 +32,7 @@
 					<% if t.done == false and t.private == false %>
 						<tr>
 							<td class = "col-sm-12" id = "hy2"><%= link_to "#{t.title}", task_path(t) %></td>
+							<td><%= t.due_date %></td>
 						</tr>
 					<% end %>
 				<% end %>

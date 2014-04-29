@@ -8,6 +8,10 @@
 			<%= f.check_box :private %>
 			<%= f.label :private %>
 		</div>
+		<div>
+			<%= f.label :due_date %>
+			<%= f.date_field :due_date %>
+		</div>
 		<%= f.submit "Add", class: "btn btn-primary pull-right" %>
 	<% end %>
 </div>
