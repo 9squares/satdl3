@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428024340) do
+ActiveRecord::Schema.define(version: 20140429033930) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140428024340) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "private",    default: false
+    t.date     "due_date"
   end
 
   add_index "tasks", ["user_id", "created_at"], name: "index_tasks_on_user_id_and_created_at"
