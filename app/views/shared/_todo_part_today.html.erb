@@ -1,4 +1,4 @@
-<!-- This part loads the Done Task div of the profile page -->
+<!-- This part laods the Today To Do List Tab of the Profile Page -->
 <div>
 	<% if @tasks.count > 0 %>
 		<table>
@@ -9,9 +9,9 @@
 			</tr>
 			<% @tasks.each do |t| %>
 				<% if t.user == current_user %>
-					<% if t.done == true and t.updated_at.to_date == Date.today %>
+					<% if t.done == false and t.due_date == Date.today %>
 						<tr>
-							<td class = "col-sm-12" id = "hy">
+							<td class = "col-sm-12" id = "hy2">
 								<% if t.private == true %>
 									Private:
 								<% end %>
@@ -21,17 +21,17 @@
 							<% if @user == current_user %>
 								<td><%= link_to "Delete", t, method: :delete, class: "btn btn-danger" %></td>
 								<td><%= form_for t do |f| %>
-										<%= f.hidden_field :done, :value=> false %>
-										<%= f.submit "Undo", class: "btn btn-primary" %>
+										<%= f.hidden_field :done, :value=> true %>
+										<%= f.submit "Done", class: "btn btn-primary" %>
 									<% end %>
 								</td>
 							<% end %>
 						</tr>
 					<% end %>
 				<% else %>
-					<% if t.done == true and t.private == false %>
+					<% if t.done == false and t.private == false %>
 						<tr>
-							<td class = "col-sm-12" id = "hy"><%= link_to "#{t.title}", task_path(t) %></td>
+							<td class = "col-sm-12" id = "hy2"><%= link_to "#{t.title}", task_path(t) %></td>
 							<td><%= t.due_date %></td>
 						</tr>
 					<% end %>
