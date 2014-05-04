@@ -14,8 +14,36 @@
 	<div class = "col-sm-6">
 
 		<h2>To Do</h2>
-		<%= render 'shared/todo_part' %>
-		<h2>Done Items</h2>
+		<ul class="nav nav-tabs">
+		  <li class="active"><a href="#today" data-toggle="tab">Today</a></li>
+		  <li><a href="#week" data-toggle="tab">This Week</a></li>
+		  <li><a href="#month" data-toggle="tab">This Month</a></li>
+		  <li><a href="#year" data-toggle="tab">This Year</a></li>
+		  <li><a href="#5years" data-toggle="tab">5 Years</a></li>
+		  <li><a href="#all" data-toggle="tab">All</a></li>
+		</ul>
+		<div class="tab-content">
+		  <div class="tab-pane fade in active" id="today">
+		  	<%= render 'shared/todo_part_today' %>
+		  </div>
+		  <div class="tab-pane fade" id="week">
+		  	<%= render 'shared/todo_part_week' %>
+		  </div>
+		  <div class="tab-pane fade" id="month">
+		  	<%= render 'shared/todo_part_month' %>
+		  </div>
+		  <div class="tab-pane fade" id="year">
+		  	<%= render 'shared/todo_part_year' %>
+		  </div>
+		  <div class="tab-pane fade" id="5years">
+		  	<%= render 'shared/todo_part_5years' %>
+		  </div>
+		  <div class="tab-pane fade" id="all">
+		  	<%= render 'shared/todo_part' %>
+		  </div>
+		</div>
+		
+		<h2>Items Done Today</h2>
 		<%= render 'shared/done_part' %>
 
 	</div>

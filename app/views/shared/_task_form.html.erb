@@ -10,7 +10,7 @@
 		</div>
 		<div>
 			<%= f.label :due_date %>
-			<%= f.date_field :due_date %>
+			<%= f.date_field :due_date, :value => Date.today %>
 		</div>
 		<%= f.submit "Add", class: "btn btn-primary pull-right" %>
 	<% end %>
