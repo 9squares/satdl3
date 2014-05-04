@@ -1,5 +1,12 @@
 @import "bootstrap";
 
+/* tab contents for tab in profile view */
+.tab-content {
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+}
+
 /* activity feed */
 .activity {
   border-bottom: solid 1px #EEE;
