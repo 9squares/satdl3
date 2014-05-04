@@ -28,8 +28,6 @@ $(function() {
 
 <a id="video"></a>
 <div id="content-div">
-  <video class = "video" autoplay loop = "1">
-    <source src = "video/videoplayback.mp4">
-  </video>
+  <%= video_tag "videoplayback.mp4", :controls => true, class: "video", loop: true, autoplay: false %>
 </div>
 
