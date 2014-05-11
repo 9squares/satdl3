@@ -19,9 +19,9 @@ $(function() {
 
 <div id="header-div">
   <h1>Welcome.</h1>
-  <p>What is a Super Awesome To-Do list?</p>
-	<p>A list that helps you get stuff done.</p>
-	<p>And help others get stuff done too.</p>
+  <h3>What is a Super Awesome To-Do list?</h3>
+	<h3>A list that helps you get stuff done.</h3>
+	<h3>And help others get stuff done too.</h3>
 	<%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-large btn-primary" %>
 	<a href="#video1" class = "btn btn-large btn-primary">Find Out More</a>
 </div>
@@ -29,8 +29,8 @@ $(function() {
 <a id="video1"></a>
 <div class="mainpage">
   <h1>Get your life sorted</h1>
-  <p>Start a todo list</p>
-  <p>Check items off your list</p>
+  <h3>Start a todo list</h3>
+  <h3>Check items off your list</h3>
   <a href="#video2" class = "btn btn-large btn-primary">Learn About Friends</a>
 </div>
 <div class="content-div">
@@ -40,9 +40,10 @@ $(function() {
 <a id="video2"></a>
 <div class="mainpage">
   <h1>Find your friends, follow them</h1>
-  <p>See what they are doing</p>
-  <p>Tell them how great they are doing</p>
+  <h3>See what they are doing</h3>
+  <h3>Tell them how great they are doing</h3>
   <%= link_to "Let's Get Started", new_user_registration_path, class: "btn btn-large btn-primary" %>
+  <a href="#header-div" class = "btn btn-large btn-primary">Back to Top</a>
 </div>
 <div class="content-div">
   <%= video_tag "friendpage1.mp4", :controls => true, class: "video", loop: true, autoplay: true %>
