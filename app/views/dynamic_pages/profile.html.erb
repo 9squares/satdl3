@@ -14,7 +14,7 @@
 	<div class = "col-sm-6">
 
 		<h2>To Do</h2>
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs" id="myTab">
 		  <li class="active"><a href="#today" data-toggle="tab">Today</a></li>
 		  <li><a href="#week" data-toggle="tab">This Week</a></li>
 		  <li><a href="#month" data-toggle="tab">This Month</a></li>
@@ -22,6 +22,7 @@
 		  <li><a href="#5years" data-toggle="tab">5 Years</a></li>
 		  <li><a href="#all" data-toggle="tab">All</a></li>
 		</ul>
+		
 		<div class="tab-content">
 		  <div class="tab-pane fade in active" id="today">
 		  	<%= render 'shared/todo_part_today' %>
@@ -58,3 +59,20 @@
 
 
 </div>
+
+<script>
+    $('#myTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
+    // store the currently selected tab in the hash value
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+        var id = $(e.target).attr("href").substr(1);
+        window.location.hash = id;
+    });
+
+    // on load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('#myTab a[href="' + hash + '"]').tab('show');
+</script>
