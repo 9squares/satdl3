@@ -1,8 +1,12 @@
 class Task < ActiveRecord::Base
 	include PublicActivity::Common
 
-	belongs_to :user
-	validates :user_id, presence: true
+	has_many :subtask, class_name: "Task",
+					   foreign_key: "precursor_id"
+	belongs_to :precursor, class_name: "Task"
+
+	belongs_to :goal
+	delegate :user, to: :goal
 	validates :title, presence: true, length: { maximum: 500 }
 	has_many :comments, dependent: :destroy
 end
