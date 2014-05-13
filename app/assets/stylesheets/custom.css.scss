@@ -161,10 +161,10 @@ $grayMediumLight: #eaeaea;
     left: 0px;
     position: relative;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 75px;
 }
 
-#content-div {
+.content-div {
     background: #FFF;
     padding: 0px;
     margin: 0px;
@@ -178,6 +178,15 @@ $grayMediumLight: #eaeaea;
   top: 0px;
   left: 0px;
   z-index: -1000
+}
+
+.mainpage {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  padding-top: 500px;
+  z-index: 1000;
 }
 
 a {
