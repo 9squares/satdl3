@@ -1,0 +1,32 @@
+<% provide(:title, @goal.title) %>
+<div class = "row">
+
+	<div class = "col-sm-1"></div>
+
+	<div class = "col-sm-2">
+		<div>
+			<%= render 'shared/user_info' %>
+			<h2>Add Goal</h2>
+			<%= render 'shared/goal_form' %>
+		</div>
+		
+	</div>
+	
+	<div class = "col-sm-6">
+
+		<div>
+			<%= render 'shared/goals_part' %>
+		</div>
+
+	</div>
+	
+	<div class = "col-sm-3">
+
+		<h2>Activity Feed</h2>
+
+		<%= render 'shared/activity_feed' %>
+
+	</div>
+
+
+</div>

@@ -17,6 +17,13 @@ class GoalsController < ApplicationController
 		@user = @goal.user
 	end
 
+	def index
+		@user = current_user
+		@goals = @user.goals.reject(&:new_record?)
+		@goal = @user.goals.build
+		@activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_users)
+	end
+
 	def update
 	end
 
