@@ -6,6 +6,7 @@ class Task < ActiveRecord::Base
 	belongs_to :precursor, class_name: "Task"
 
 	belongs_to :goal
+	delegate :user, to: :goal
 	validates :title, presence: true, length: { maximum: 500 }
 	has_many :comments, dependent: :destroy
 end

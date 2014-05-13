@@ -12,6 +12,9 @@
 			<%= f.label :due_date %>
 			<%= f.date_field :due_date, :value => Date.today %>
 		</div>
+		<div>
+			<%= f.collection_select(:goal_id, @goals, :id, :title) %>
+		</div>
 		<%= f.submit "Add", class: "btn btn-primary pull-right" %>
 	<% end %>
 </div>
