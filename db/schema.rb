@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509073455) do
+ActiveRecord::Schema.define(version: 20140513044808) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 20140509073455) do
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id"
 
+  create_table "group_memberships", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -64,15 +77,16 @@ ActiveRecord::Schema.define(version: 20140509073455) do
 
   create_table "tasks", force: true do |t|
     t.string   "title"
-    t.integer  "user_id"
-    t.boolean  "done",       default: false
+    t.boolean  "done",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "private",    default: false
+    t.boolean  "private",      default: false
     t.date     "due_date"
+    t.integer  "goal_id"
+    t.integer  "precursor_id"
   end
 
-  add_index "tasks", ["user_id", "created_at"], name: "index_tasks_on_user_id_and_created_at"
+  add_index "tasks", ["created_at"], name: "index_tasks_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
