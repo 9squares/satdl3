@@ -1,5 +1,6 @@
 Satdl3::Application.routes.draw do
   devise_for :users
+
   resources :users, only: [:index, :show] do
     member do
       get :following, :followers
@@ -9,7 +10,12 @@ Satdl3::Application.routes.draw do
   resources :tasks do
     resources :comments
   end
+
   resources :relationships, only: [:create, :destroy]
+
+  resources :goals
+
+  resources :groups
 
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',         via: 'get'
