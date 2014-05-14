@@ -29,6 +29,18 @@ body {
   }
 }
 
+.goalsindex {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: hidden;
+    padding: 5px 0;
+    &:last-child {
+      border-bottom: 1px solid #EEE;
+    }
+  }
+}
+
 /* tab contents for tab in profile view */
 .tab-content {
   border-bottom: 1px solid #dddddd;

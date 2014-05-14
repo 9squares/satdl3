@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513044808) do
+ActiveRecord::Schema.define(version: 20140514104317) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140513044808) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "done",       default: false
   end
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id"
