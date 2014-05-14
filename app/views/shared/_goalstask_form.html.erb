@@ -1,0 +1,19 @@
+<!-- This part loads the entry form to create new task for a goal -->
+<div>
+	<%= form_for(@task) do |f| %>
+		<div><%= f.label :title %><br>
+			<%= f.text_area :title, placeholder: "Create new task...", class: "form-control" %>
+		</div>
+		<div>
+			<%= f.check_box :private %>
+			<%= f.label :private %>
+		</div>
+		<div>
+			<%= f.label :due_date %>
+			<%= f.date_field :due_date, :value => Date.today %>
+		</div>
+		<%= f.hidden_field :goal_id %>
+		<%= hidden_field_tag 'selected', "#{@goal.id}"  %>
+		<%= f.submit "Add", class: "btn btn-primary pull-right" %>
+	<% end %>
+</div>

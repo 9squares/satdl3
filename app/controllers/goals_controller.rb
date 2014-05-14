@@ -15,6 +15,8 @@ class GoalsController < ApplicationController
 	def show
 		@goal = Goal.find_by(id: params[:id])
 		@user = @goal.user
+		@task = @goal.tasks.build(goal_id: params[:id])
+		@tasks = @goal.tasks.reject(&:new_record?)
 	end
 
 	def index

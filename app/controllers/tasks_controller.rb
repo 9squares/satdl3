@@ -6,7 +6,11 @@ class TasksController < ApplicationController
 		if @task.save
 			@task.create_activity :create, owner: current_user
 			flash[:success] = "Task created!"
-			redirect_to profile_path
+			if @task.title == "General"
+				redirect_to profile_path
+			else 
+				redirect_to goal_path(@task.goal_id)
+			end
 		else
 			render 'static_pages/home'
 		end
@@ -22,7 +26,11 @@ class TasksController < ApplicationController
 		@task = current_user.tasks.find_by(id: params[:id])
 		@task.update(task_params)
 		@task.create_activity :update, owner: current_user
-		redirect_to profile_path
+		if @task.title == "General"
+			redirect_to profile_path
+		else 
+			redirect_to goal_path(@task.goal_id)
+		end
 	end
 
 	def show
