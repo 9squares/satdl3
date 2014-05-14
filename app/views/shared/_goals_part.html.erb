@@ -1,0 +1,10 @@
+<div class="goals">
+	<h2><%= link_to "Goals", goals_path %></h2>
+	<ul class="goalslist">
+		<% @goals.each do |g| %>
+			<% if g.title != "General" %>
+				<li><%= link_to "#{g.title}", goal_path(g) %></li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
