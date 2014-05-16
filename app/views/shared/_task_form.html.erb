@@ -10,7 +10,7 @@
 		</div>
 		<div>
 			<%= f.label :due_date %>
-			<%= f.date_field :due_date, :value => Date.today %>
+			<%= f.date_field :due_date, :value => Date.today, class: "form-control" %>
 		</div>
 		<div>
 			<%= f.collection_select(:goal_id, @goals, :id, :title) %>
