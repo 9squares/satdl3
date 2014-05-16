@@ -1,0 +1,35 @@
+<% provide(:title, "Groups") %>
+<div class = "row">
+
+	<div class = "col-sm-1"></div>
+
+	<div class = "col-sm-2">
+		<div>
+			<%= render 'shared/user_info' %>
+			<h2>Create Group</h2>
+			<%= render 'shared/group_form' %>
+		</div>
+	</div>
+	
+	<div class = "col-sm-6">
+		<h1>Group list</h1>
+		
+		<ul class="groups">
+			<% @groups.each do |g| %>
+				<li><%= link_to "#{g.title}", group_path(g.id) %></li>
+			<% end %>
+		</ul>
+		
+
+	</div>
+	
+	<div class = "col-sm-3">
+
+		<h2>Activity Feed</h2>
+
+		<%= render 'shared/activity_feed' %>
+
+	</div>
+
+
+</div>

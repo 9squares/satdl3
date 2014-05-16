@@ -5,7 +5,7 @@ class GoalsController < ApplicationController
 		@goal = current_user.goals.build(goal_params)
 		if @goal.save
 			@goal.create_activity :create, owner: current_user
-			flash[:success] = "Task created!"
+			flash[:success] = "Goal created!"
 			redirect_to goals_path
 		else
 			render 'static_pages/home'

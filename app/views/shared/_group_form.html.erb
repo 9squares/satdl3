@@ -1,0 +1,11 @@
+<!-- This part loads the entry form to create new Group -->
+<div>
+	<%= form_for(@group) do |f| %>
+		<div><%= f.label :title %><br>
+			<%= f.text_area :title, placeholder: "Create new group...", class: "form-control" %>
+		</div>
+		
+
+		<%= f.submit "Add", class: "btn btn-primary pull-right" %>
+	<% end %>
+</div>
