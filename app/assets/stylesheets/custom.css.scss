@@ -226,6 +226,19 @@ a {
   color: #222;
 }
 
+.navbar2 {
+  height: 45px;
+}
+@media (max-width: 768px) {
+  .navbar2 {
+    height: 0px;
+  }
+}
+
+.btn {
+  margin-top: 3px;
+}
+
 /* code to get width to work in Windows Phone 8 */
 @-webkit-viewport    {width:device-width}
 @-moz-viewport       {width:device-width}
